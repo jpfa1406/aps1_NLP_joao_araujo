@@ -16,17 +16,17 @@ X = None
 def load_data():
     global grouped_df, vectorizer, similarity_matrix, X
     # Load and prepare data
-    all_sf_data = pd.concat([pd.read_csv('../archive/sf_aliens.csv').assign(type='aliens'),
-                             pd.read_csv('../archive/sf_alternate_history.csv').assign(type='history'),
-                             pd.read_csv('../archive/sf_alternate_universe.csv').assign(type='universe'),
-                             pd.read_csv('../archive/sf_apocalyptic.csv').assign(type='apocalyptic'),
-                             pd.read_csv('../archive/sf_cyberpunk.csv').assign(type='cyberpunk'),
-                             pd.read_csv('../archive/sf_dystopia.csv').assign(type='dystopia'),
-                             pd.read_csv('../archive/sf_military.csv').assign(type='military'),
-                             pd.read_csv('../archive/sf_robots.csv').assign(type='robots'),
-                             pd.read_csv('../archive/sf_space_opera.csv').assign(type='space opera'),
-                             pd.read_csv('../archive/sf_steampunk.csv').assign(type='steampunk'),
-                             pd.read_csv('../archive/sf_time_travel.csv').assign(type='time travel')], ignore_index=True)
+    all_sf_data = pd.concat([pd.read_csv('./archive/sf_aliens.csv').assign(type='aliens'),
+                             pd.read_csv('./archive/sf_alternate_history.csv').assign(type='history'),
+                             pd.read_csv('./archive/sf_alternate_universe.csv').assign(type='universe'),
+                             pd.read_csv('./archive/sf_apocalyptic.csv').assign(type='apocalyptic'),
+                             pd.read_csv('./archive/sf_cyberpunk.csv').assign(type='cyberpunk'),
+                             pd.read_csv('./archive/sf_dystopia.csv').assign(type='dystopia'),
+                             pd.read_csv('./archive/sf_military.csv').assign(type='military'),
+                             pd.read_csv('./archive/sf_robots.csv').assign(type='robots'),
+                             pd.read_csv('./archive/sf_space_opera.csv').assign(type='space opera'),
+                             pd.read_csv('./archive/sf_steampunk.csv').assign(type='steampunk'),
+                             pd.read_csv('./archive/sf_time_travel.csv').assign(type='time travel')], ignore_index=True)
 
     grouped_df = all_sf_data.groupby('Book_Title').agg({
         'Book_Description': 'first',
