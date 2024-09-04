@@ -151,7 +151,7 @@ def recommend_books(book_title, grouped_df, similarity_matrix, top_n=5, type_fil
     return results
 
 def run():
-    uvicorn.run("main:app", host="0.0.0.0", port=8000, reload=True)
+    uvicorn.run("main:app", host="10.103.0.28", port=1506, reload=True)
 
 if __name__ == "__main__":
     run()
