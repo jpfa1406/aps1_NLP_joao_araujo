@@ -50,7 +50,7 @@ def query_route(query: str = Query(..., description="Search query"),
     type_filter_list = type_filter.split(",") if type_filter else None
     
     # Perform search
-    results = search_books(query, X, vectorizer, grouped_df, top_n=15, type_filter=type_filter_list)
+    results = search_books(query, X, vectorizer, grouped_df, top_n=10, type_filter=type_filter_list)
 
     # Prepare the response
     response = {
@@ -96,7 +96,7 @@ def recommend_route(book_title: str = Query(..., description="Book title to base
     }
     return response
 
-def search_books(query, X, vectorizer, grouped_df, top_n=15, type_filter=None):
+def search_books(query, X, vectorizer, grouped_df, top_n=10, type_filter=None):
     query_vec = vectorizer.transform([query])
     relevance_scores = X.dot(query_vec.T).toarray().flatten()
 
